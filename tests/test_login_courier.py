@@ -30,7 +30,7 @@ class TestLoginCourier:
 
     @allure.title('Авторизация курьера не пройдена при отправке неверного password')
     @allure.description('Проверка отправки неверного password при автроизации курьера (код - 404 и "message": "Учетная запись не найдена"')
-    def test_get_courier_id(self):
+    def test_get_courier_id_with_wrong_password(self):
         login_pass = register_new_courier_and_return_login_password()
         payload = {
             "login": login_pass[0],
