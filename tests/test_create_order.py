@@ -4,6 +4,10 @@ import pytest
 from data.urls import url
 from test_data import test_data  # Импортируем тестовые данные
 
+def create_order(payload):
+    response = requests.post(f"{url}/orders_list_endpoint", json=payload)
+    return response
+
 class TestCreateOrder:
     @pytest.mark.parametrize('color', [
         ['BLACK'],
@@ -19,6 +23,7 @@ class TestCreateOrder:
             "color": color
         }
 
-        r = requests.post(f"{url}/orders_list_endpoint", json=payload)
-        assert r.status_code == 201
-        assert 'track' in r.json()
+        response = create_order(payload)  # Используем ранее созданный шаг
+        assert response.status_code == 201
+        assert 'track' in response.json()
+
