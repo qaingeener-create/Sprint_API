@@ -6,15 +6,15 @@ import logging
 
 # Вынесем шаги в отдельный модуль
 def create_courier(payload):
-    response = requests.post(f"{url}/create_courier_endpoint", json=payload)
+    response = requests.post(f"create_courier_url", json=payload)
     return response
 
 def login_courier(login_payload):
-    response = requests.post(f"{url}/login_courier_endpoint", json=login_payload)
+    response = requests.post(f"create_courier_url", json=login_payload)
     return response
 
 def delete_courier(courier_id):
-    response = requests.delete(f"{url}/create_courier_endpoint/{courier_id}")
+    response = requests.delete(f"create_courier_url/{courier_id}")
     return response
 
 class TestCreateCourier:

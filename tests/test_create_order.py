@@ -5,7 +5,7 @@ from data.urls import url
 from test_data import test_data  # Импортируем тестовые данные
 
 def create_order(payload):
-    response = requests.post(f"{url}/orders_list_endpoint", json=payload)
+    response = requests.post(f"orders_list_url", json=payload)
     return response
 
 class TestCreateOrder:
