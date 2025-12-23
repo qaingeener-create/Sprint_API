@@ -19,6 +19,6 @@ class TestCreateOrder:
             "color": color
         }
 
-        r = requests.post(f"{url}/api/v1/orders", json=payload)
+        r = requests.post(f"{url}/orders_list_endpoint", json=payload)
         assert r.status_code == 201
         assert 'track' in r.json()
