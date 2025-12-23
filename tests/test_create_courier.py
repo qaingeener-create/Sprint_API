@@ -14,7 +14,7 @@ def login_courier(login_payload):
     return response
 
 def delete_courier(courier_id):
-    response = requests.delete(f"{url}/create_courier_endpoint{courier_id}")
+    response = requests.delete(f"{url}/create_courier_endpoint/{courier_id}")
     return response
 
 class TestCreateCourier:
@@ -24,7 +24,7 @@ class TestCreateCourier:
         payload = data
         logging.info(f"Data for courier creation: {data}")
 
-        response = create_courier(payload)
+        response = create_courier(payload)  # Используем ранее созданный шаг
         assert response.status_code == 201
         assert response.json() == {"ok": True}, "Неверное содержимое ответа."
 
@@ -47,7 +47,7 @@ class TestCreateCourier:
     def test_create_courier_duplicate_login(self):
         data = generation_new_data_courier()
         payload = data
-        response = create_courier(payload)
+        response = create_courier(payload)  # Используем ранее созданный шаг
 
         assert response.status_code == 409
         assert response.json() == {"code": 409, "message": "Этот логин уже используется. Попробуйте другой."}, "Неверное содержимое ответа."
@@ -61,7 +61,7 @@ class TestCreateCourier:
             "login": data["login"],
             "firstName": data["firstName"]
         }
-        response = requests.post(f"{url}/create_courier_endpoint", json=payload)
+        response = create_courier(payload)  # Используем ранее созданный шаг
 
         assert response.status_code == 400
         assert response.json() == {"code": 400,
