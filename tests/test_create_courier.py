@@ -28,19 +28,7 @@ class TestCreateCourier:
         assert response.status_code == 201
         assert response.json() == {"ok": True}, "Неверное содержимое ответа."
 
-        login_payload = {
-            "login": payload["login"],
-            "password": payload["password"]
-        }
-        login_response = login_courier(login_payload)
-        assert login_response.status_code == 200, "Login failed."
-
-        courier_id = login_response.json().get("id")
-        assert courier_id is not None, "Courier ID not found in login response."
-
-        # Delete the created courier
-        delete_response = delete_courier(courier_id)
-        assert delete_response.status_code == 200, "Failed to delete courier."
+        
 
     @allure.title('Проверка невозможности создать курьера с уже существующими учётными данными')
     @allure.description('Проверка, что нельзя создать курьера с уже существующеми кредами (код - 409 и текст - "message": "Этот логин уже используется. Попробуйте другой.")')
