@@ -8,7 +8,7 @@ class TestCreateOrder:
     @pytest.mark.parametrize('color', [
         ['BLACK'],
         ['GREY'],
-        ['BLACK', 'GRAY'],
+        ['BLACK', 'GREY'],
         []
     ])
     @allure.title('Создание заказа')
