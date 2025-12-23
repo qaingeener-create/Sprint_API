@@ -1,6 +1,6 @@
 import requests
 import allure
-from data.URL import url
+from data.urls import url
 from test_data import test_data  # Импортируем тестовые данные
 
 class TestGetListOfOrders:

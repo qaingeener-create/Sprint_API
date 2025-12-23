@@ -1,7 +1,7 @@
 import requests
 import allure
 import pytest
-from data.URL import url
+from data.urls import url
 from test_data import test_data  # Импортируем тестовые данные
 
 class TestCreateOrder:

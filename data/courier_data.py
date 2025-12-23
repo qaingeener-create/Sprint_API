@@ -1,5 +1,5 @@
 from helpers import generate_new_data_courier
-from data.URL import url
+from data.urls import url
 import requests
 
 def register_new_courier_and_return_login_password():

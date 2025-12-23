@@ -1,6 +1,6 @@
 import requests
 import allure
-from data.URL import url
+from data.urls import url
 from data.courier_data import generation_new_data_courier
 import logging
 
