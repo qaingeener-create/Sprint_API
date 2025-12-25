@@ -8,6 +8,6 @@ create_courier_url = url + create_courier_endpoint
 login_courier_url = url + login_courier_endpoint
 orders_list_url = url + orders_list_endpoint
 
-print(create_courier_url)  # https://qa-scooter.praktikum-services.ru/api/v1/courier
-print(login_courier_url)   # https://qa-scooter.praktikum-services.ru/api/v1/courier/login
-print(orders_list_url)     # https://qa-scooter.praktikum-services.ru/api/v1/orders
+#print(create_courier_url)  # https://qa-scooter.praktikum-services.ru/api/v1/courier
+#print(login_courier_url)   # https://qa-scooter.praktikum-services.ru/api/v1/courier/login
+#print(orders_list_url)     # https://qa-scooter.praktikum-services.ru/api/v1/orders
