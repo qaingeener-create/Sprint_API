@@ -1,4 +1,4 @@
-from behave import step
+from allure import step
 from data.urls import url
 import random
 import string
