@@ -45,3 +45,7 @@ def login_courier(login_payload):
 def delete_courier(courier_id):
     response = requests.delete(f"{url}/api/v1/courier/{courier_id}")
     return response
+@step('Create_order')
+def create_order(payload):
+    response = requests.post(f"orders_list_url", json=payload)
+    return response

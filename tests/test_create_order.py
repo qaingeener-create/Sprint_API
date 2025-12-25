@@ -3,10 +3,9 @@ import allure
 import pytest
 from data.urls import url
 from test_data import test_data  # Импортируем тестовые данные
+from helpers import create_order
 
-def create_order(payload):
-    response = requests.post(f"orders_list_url", json=payload)
-    return response
+
 
 class TestCreateOrder:
     @pytest.mark.parametrize('color', [
