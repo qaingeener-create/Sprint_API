@@ -26,25 +26,26 @@ def register_new_courier_and_return_login_password():
         "firstName": data["firstName"]
     }
 
-    response = requests.post(f"{url}/api/v1/courier", json=payload)
+    response = requests.post(f"create_courier_url", json=payload)
 
     if response.status_code == 201:
         return [data["login"], data["password"], data["firstName"]]
 
 @step('Create courier')
 def create_courier(payload):
-    response = requests.post(f"{url}/api/v1/courier", json=payload)
+    response = requests.post(f"create_courier_url", json=payload)
     return response
 
 @step('Login courier')
 def login_courier(login_payload):
-    response = requests.post(f"{url}/api/v1/courier/login", json=login_payload)
+    response = requests.post(f"login_courier_url", json=login_payload)
     return response
 
 @step('Delete courier')
 def delete_courier(courier_id):
-    response = requests.delete(f"{url}/api/v1/courier/{courier_id}")
+    response = requests.delete(f"create_courier_url/{courier_id}")
     return response
+
 @step('Create_order')
 def create_order(payload):
     response = requests.post(f"orders_list_url", json=payload)

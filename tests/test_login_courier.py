@@ -12,7 +12,7 @@ class TestLoginCourier:
     @allure.description('Проверка получения ID курьера при авторизации с корректным login и password (код - 200 и ID')
     def test_get_courier_id(self, delete_courier_data):
         payload = delete_courier_data
-        response = requests.post(f"login_courier_url", data=payload)
+        response = self.login_courier_url(payload)
 
         assert response.status_code == 200
         assert 'id' in response.json()
@@ -25,7 +25,7 @@ class TestLoginCourier:
             "login": login_pass[0],
             "password": login_pass[0]
         }
-        response = requests.post(f"login_courier_url", data=payload)
+        response = self.login_courier_url(payload)
 
         assert response.status_code == 404
         assert response.json() == {"code": 404, "message": "Учетная запись не найдена"}, "Неверное содержимое ответа."
@@ -39,7 +39,7 @@ class TestLoginCourier:
             "login": login_pass[0],
             "password": ""
         }
-        response = requests.post(f"login_courier_url", data=payload)
+        response = self.login_courier_url(payload)
 
         assert response.status_code == 400
         assert response.json() == {"code": 400, "message": "Недостаточно данных для входа"}
