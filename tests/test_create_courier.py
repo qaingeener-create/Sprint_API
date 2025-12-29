@@ -1,4 +1,3 @@
-
 from methods.create_courier import CourierMethods
 import data
 
@@ -18,6 +17,23 @@ class TestCreateCourier:
        
        
        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
        
        # data = generation_new_data_courier()
         #payload = data
