@@ -1,5 +1,6 @@
-from methods.create_courier import CourierMethods
+from methods.create_courier import CourierMethods # type: ignore
 import data
+from generators import generate_random_string 
 
 
 
@@ -8,7 +9,8 @@ class TestCreateCourier:
     
     #@allure.title('Создание курьера')
     def test_create_courier_success(self):
-        response = CourierMethods.create_courier(body = data.DataForCourier.Creat_Courier_Body)
+        fake_courier_data = generate_random_string() 
+        response = CourierMethods.create_courier(body = fake_courier_data)
         assert response.status_code == 200
         assert response.json() == {"ok": True}, "Неверное содержимое ответа."
        
